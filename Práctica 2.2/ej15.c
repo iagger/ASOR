@@ -20,7 +20,7 @@ int main(int argc, char ** argv) {
 
     if (fcntl(file, F_GETLK, &cerrojo) == -1) {
         printf("ERROR al comprobar el cerrojo -> %i : %s.\n", errno, strerror(errno));
-        //return -1;
+        return -1;
     }
 
     if (cerrojo.l_type == F_UNLCK) {
@@ -45,7 +45,7 @@ int main(int argc, char ** argv) {
 
             free(c);
 
-            sleep(10);
+            sleep(30);
 
             cerrojo.l_type = F_UNLCK;
 
